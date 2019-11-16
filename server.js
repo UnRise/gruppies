@@ -5,18 +5,12 @@ const app = express()
 const port = 8080
 //attack config
 const count = 1
-const number = '+79132088734'
+const number = ''
 
 method.attack(number)
 
-app.get('/', function(req, res){
-    for (let i = 0; i < count; i++){
-        method.attack(number)
-    }
-})
-
 app.get('/start', function(req, res){
-    alert('Welcome!')
+    console.log('Someone visit (/start) page')
 })
 
 app.listen(port,  function(reg, res){
