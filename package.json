@@ -12,6 +12,7 @@
     "corser": "^2.0.1",
     "express": "^4.17.1",
     "form-data": "^3.0.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "path": "^0.12.7"
   }
 }
