@@ -12,8 +12,8 @@ function b_tinkoff(number){
         method: 'post',
         body: payload
     })
-        .then(r => r.status)
-        .then(r => console.log('Tinkoff: '+r))
+        .then(r => r.json())
+        .then(r => console.log(r))
         .catch(e => console.log(e))
 }
 

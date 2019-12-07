@@ -4,11 +4,20 @@ const port = '8080'
 function action(){
     const number = document.getElementById('number').value
     const count = document.getElementById('count').value
-    console.log(`http://${host}:${port}/attack/${number}/${count}`)
-    fetch(`http://${host}:${port}/attack/${number}/${count}`,{
-        method:'get'
-    })
-    .then(r => r.status)
-    .then(r => console.log(r))
-    .catch(e => console.log(e))   
+    data = {number: number,
+        count: count}
+
+    axios.post('/attack', {
+        number:number,
+        count:count
+        },
+        {
+            headers:{contentType: "application/json; charset=utf-8"}}
+    )
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 }
