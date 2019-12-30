@@ -25,6 +25,15 @@ app.post('/attack', (req, res) => {
     res.send('200')
 })
 
+app.post('/popup', (req, res) => {
+    let data = req.body
+    let number = data.number
+
+    console.log(`request from extension, data is ${number}`)
+    attackService.attack(number, 1)
+    res.send('200')
+})
+
 app.listen(port, function(reg, res){
     console.log(`Demon RUN - OK!`)
 })
