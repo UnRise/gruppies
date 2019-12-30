@@ -5,8 +5,9 @@ const path = require('path')
 // const indexPage = require('./templates/index.html')
 const app = express()
 //server config
-const host = '127.0.0.1'
-const port = 8080
+const 
+host = 'localhost'
+const port = 80
 //attack config
 
 app.use('/public', express.static(path.join(__dirname,'public')));
@@ -25,6 +26,6 @@ app.post('/attack', (req, res) => {
     res.send('200')
 })
 
-app.listen(port, function(reg, res){
+app.listen(host, port, function(reg, res){
     console.log(`Demon RUN - OK!`)
 })
